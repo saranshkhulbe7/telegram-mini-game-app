@@ -66,7 +66,7 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: "20px", textAlign: "center" }}>
+    <div style={{ padding: "20px", textAlign: "center", maxWidth: "360px" }}>
       <h1>My Telegram Mini App</h1>
       {isTelegram ? (
         user ? (
