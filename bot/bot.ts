@@ -9,9 +9,9 @@ bot.start((ctx) =>
       keyboard: [
         [
           {
-            text: "web app",
+            text: "web app lol",
             web_app: {
-              url: "telegram-mini-game-app-98vx.vercel.app",
+              url: "http://localhost:5173",
             },
           },
         ],
