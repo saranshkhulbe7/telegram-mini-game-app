@@ -5,7 +5,7 @@ function App() {
   const [user, setUser] = useState<any>(null);
   useEffect(() => {
     tele.ready();
-    const userData = tele.initDataUnsafe.user;
+    const userData = tele.initDataUnsafe;
     if (userData) {
       setUser(userData);
     }
