@@ -5,10 +5,14 @@ function App() {
   const [user, setUser] = useState<any>(null);
   useEffect(() => {
     tele.ready();
-  });
+    const userData = tele.initDataUnsafe.user;
+    if (userData) {
+      setUser(userData);
+    }
+  }, [setUser]);
   return (
     <div style={{ padding: "20px", textAlign: "center" }}>
-      <h1>My Telegram Mini App</h1>
+      <h1>My Telegram Mini App lol</h1>
       {user ? (
         <div>
           <p>
