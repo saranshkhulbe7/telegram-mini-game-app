@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import GameCanvas from "./GameCanvas";
 
 // Type the Telegram WebApp object minimally for now
 interface TelegramWebApp {
@@ -57,7 +58,7 @@ function App() {
       console.warn("No user data in initDataUnsafe");
     }
 
-    // Add a Main Button for testing
+    // Optional MainButton usage
     tele.MainButton.setText("Test Button");
     tele.MainButton.show();
     tele.MainButton.onClick(() => {
@@ -66,21 +67,34 @@ function App() {
   }, []);
 
   return (
-    <div style={{ padding: "20px", textAlign: "center", maxWidth: "360px" }}>
+    <div
+      style={{
+        padding: "20px",
+        textAlign: "center",
+        maxWidth: "360px",
+        margin: "0 auto",
+      }}
+    >
       <h1>My Telegram Mini App</h1>
       {isTelegram ? (
-        user ? (
-          <div>
-            <p>
-              Welcome, {user.first_name} {user.last_name || ""}!
-            </p>
-            <p>User ID: {user.id}</p>
-            {user.username && <p>Username: @{user.username}</p>}
-            <p>Raw User Data: {JSON.stringify(user)}</p>
-          </div>
-        ) : (
-          <p>No user data available. Check console logs.</p>
-        )
+        <>
+          {user ? (
+            <div>
+              <p>
+                Welcome, {user.first_name} {user.last_name || ""}!
+              </p>
+              <p>User ID: {user.id}</p>
+              {user.username && <p>Username: @{user.username}</p>}
+              <p>Raw User Data: {JSON.stringify(user)}</p>
+            </div>
+          ) : (
+            <p>No user data available. Check console logs.</p>
+          )}
+
+          {/* Render the GameCanvas */}
+          <h2>Simple Spaceship Game</h2>
+          <GameCanvas width={360} height={500} />
+        </>
       ) : (
         <p>This app must be run inside Telegram.</p>
       )}
