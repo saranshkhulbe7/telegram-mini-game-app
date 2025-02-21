@@ -11,7 +11,7 @@ bot.start((ctx) =>
           {
             text: "web app",
             web_app: {
-              url: "https://telegram-mini-game-app-98vx.vercel.app/",
+              url: "telegram-mini-game-app-98vx.vercel.app",
             },
           },
         ],

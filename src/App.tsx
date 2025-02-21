@@ -13,6 +13,7 @@ function App() {
   return (
     <div style={{ padding: "20px", textAlign: "center" }}>
       <h1>My Telegram Mini App lol</h1>
+      <p>user: {JSON.stringify(user)}</p>
       {user ? (
         <div>
           <p>
