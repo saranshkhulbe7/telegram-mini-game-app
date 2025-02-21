@@ -9,10 +9,32 @@ declare global {
 
 const App: React.FC = () => {
   useEffect(() => {
-    window?.Telegram?.WebApp?.ready();
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.ready();
+    }
   }, []);
 
-  return <div>Your App Content</div>;
+  useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp) {
+      console.log("Telegram WebApp is available:", window.Telegram.WebApp);
+      window.Telegram.WebApp.ready();
+    } else {
+      console.error("Telegram WebApp is not available!");
+    }
+  }, []);
+
+  const testConnection = () => {
+    const testPayload = JSON.stringify({ test: "hello from mini app" });
+    window.Telegram.WebApp.sendData(testPayload);
+    console.log("Test data sent:", testPayload);
+  };
+
+  return (
+    <div>
+      Your App Content
+      <button onClick={testConnection}>Test Connection</button>
+    </div>
+  );
 };
 
 export default App;
