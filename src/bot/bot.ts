@@ -10,7 +10,7 @@ bot.start((ctx) =>
       inline_keyboard: [
         [
           {
-            text: "web app lol",
+            text: "Open Web App",
             web_app: {
               url: app_url,
             },
