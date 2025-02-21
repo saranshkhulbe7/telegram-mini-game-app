@@ -8,10 +8,16 @@ function App() {
   const [user, setUser] = useState<any>(null);
   useEffect(() => {
     tele.ready();
-  });
+    const userData = tele.initDataUnsafe;
+    console.log(tele);
+    if (userData) {
+      setUser(userData);
+    }
+  }, [setUser]);
   return (
     <div style={{ padding: "20px", textAlign: "center" }}>
-      <h1>My Telegram Mini App</h1>
+      <h1>My Telegram Mini App lol a</h1>
+      <p>user: {JSON.stringify(tele)}</p>
       {user ? (
         <div>
           <p>
@@ -159,6 +165,32 @@ button:focus-visible {
 src/vite-env.d.ts
 -----------------
 /// <reference types="vite/client" />
+
+
+src/bot/bot.ts
+--------------
+import { Telegraf } from "telegraf";
+
+const token = "8104716926:AAHm0WxoBy9BOrVk-S9xSWetjQgBrt34ftQ";
+const bot = new Telegraf(token);
+
+bot.start((ctx) =>
+  ctx.reply("Welcome", {
+    reply_markup: {
+      keyboard: [
+        [
+          {
+            text: "web app lol",
+            web_app: {
+              url: "https://aa29-2401-4900-1c27-a6eb-400c-973-55c0-651f.ngrok-free.app",
+            },
+          },
+        ],
+      ],
+    },
+  })
+);
+bot.launch();
 
 
 src/assets/react.svg

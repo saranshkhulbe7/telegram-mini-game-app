@@ -6,12 +6,12 @@ const bot = new Telegraf(token);
 bot.start((ctx) =>
   ctx.reply("Welcome", {
     reply_markup: {
-      keyboard: [
+      inline_keyboard: [
         [
           {
             text: "web app lol",
             web_app: {
-              url: "http://localhost:5173",
+              url: "https://aa29-2401-4900-1c27-a6eb-400c-973-55c0-651f.ngrok-free.app",
             },
           },
         ],
